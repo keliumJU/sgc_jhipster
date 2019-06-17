@@ -1,0 +1,43 @@
+{
+    "name": "Contenido",
+    "fields": [
+        {
+            "fieldName": "actividad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "responsable",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registro",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "contenido",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        }
+    ],
+    "changelogDate": "20190617075223",
+    "entityTableName": "contenido",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,27 @@
+{
+    "name": "TipoDoc",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tipoDoc",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codTip",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190617075217",
+    "entityTableName": "tipo_doc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

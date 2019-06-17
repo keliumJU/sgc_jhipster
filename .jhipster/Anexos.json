@@ -1,0 +1,44 @@
+{
+    "name": "Anexos",
+    "fields": [
+        {
+            "fieldName": "nomAnexo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "img",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "idPadre",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "anexos",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        }
+    ],
+    "changelogDate": "20190617075224",
+    "entityTableName": "anexos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

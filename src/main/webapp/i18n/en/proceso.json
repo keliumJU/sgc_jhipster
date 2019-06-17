@@ -1,0 +1,26 @@
+{
+  "sgcApp": {
+    "proceso": {
+      "home": {
+        "title": "Procesos",
+        "createLabel": "Create a new Proceso",
+        "createOrEditLabel": "Create or edit a Proceso",
+        "notFound": "No Proceso found"
+      },
+      "created": "A new Proceso is created with identifier {{ param }}",
+      "updated": "A Proceso is updated with identifier {{ param }}",
+      "deleted": "A Proceso is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Proceso {{ id }}?"
+      },
+      "detail": {
+        "title": "Proceso"
+      },
+      "code": "Code",
+      "proceso": "Proceso",
+      "idMacroProceso": "Id Macro Proceso",
+      "codDoc": "Cod Doc",
+      "macroProceso": "Macro Proceso"
+    }
+  }
+}

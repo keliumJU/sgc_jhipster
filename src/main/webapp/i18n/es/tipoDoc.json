@@ -1,0 +1,24 @@
+{
+  "sgcApp": {
+    "tipoDoc": {
+      "home": {
+        "title": "Tipo Docs",
+        "createLabel": "Crear nuevo Tipo Doc",
+        "createOrEditLabel": "Crear o editar Tipo Doc",
+        "notFound": "No Tipo Doc found"
+      },
+      "created": "Un nuevo Tipo Doc ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Doc ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Doc ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Doc"
+      },
+      "code": "Code",
+      "tipoDoc": "Tipo Doc",
+      "codTip": "Cod Tip"
+    }
+  }
+}

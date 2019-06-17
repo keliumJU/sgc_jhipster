@@ -14,6 +14,36 @@
     <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075216_added_entity_DocumentoSGC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075217_added_entity_TipoDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075218_added_entity_HistorialCambios.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075219_added_entity_MacroProceso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075220_added_entity_Proceso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075221_added_entity_ElementosDocSGC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075222_added_entity_Elementos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075223_added_entity_Contenido.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075224_added_entity_Anexos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075225_added_entity_DocRevision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075226_added_entity_EstadoDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075227_added_entity_Formatos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075228_added_entity_AjustarDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075229_added_entity_Cargo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075230_added_entity_AccionDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075231_added_entity_VersionFormatos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075232_added_entity_Solicitud.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075233_added_entity_TipoSolicitud.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075234_added_entity_SolRevision.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190617075216_added_entity_constraints_DocumentoSGC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075218_added_entity_constraints_HistorialCambios.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075220_added_entity_constraints_Proceso.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075221_added_entity_constraints_ElementosDocSGC.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075223_added_entity_constraints_Contenido.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075224_added_entity_constraints_Anexos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075225_added_entity_constraints_DocRevision.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075227_added_entity_constraints_Formatos.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075228_added_entity_constraints_AjustarDoc.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075232_added_entity_constraints_Solicitud.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190617075234_added_entity_constraints_SolRevision.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

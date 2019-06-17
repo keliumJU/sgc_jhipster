@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="documentoSGC">
+            <h2><span jhiTranslate="sgcApp.documentoSGC.detail.title">Documento SGC</span> {{documentoSGC.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.documentoSGC.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{documentoSGC.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.idProceso">Id Proceso</span></dt>
+                <dd>
+                    <span>{{documentoSGC.idProceso}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.idTipoDoc">Id Tipo Doc</span></dt>
+                <dd>
+                    <span>{{documentoSGC.idTipoDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.nomDoc">Nom Doc</span></dt>
+                <dd>
+                    <span>{{documentoSGC.nomDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.ruta">Ruta</span></dt>
+                <dd>
+                    <div *ngIf="documentoSGC.ruta">
+                        <a (click)="openFile(documentoSGC.rutaContentType, documentoSGC.ruta)" jhiTranslate="entity.action.open">open</a>
+                        {{documentoSGC.rutaContentType}}, {{byteSize(documentoSGC.ruta)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.idEstado">Id Estado</span></dt>
+                <dd>
+                    <span>{{documentoSGC.idEstado}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.version">Version</span></dt>
+                <dd>
+                    <span>{{documentoSGC.version}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.estadoDoc">Estado Doc</span></dt>
+                <dd>
+                    <div *ngIf="documentoSGC.estadoDoc">
+                        <a [routerLink]="['/estado-doc', documentoSGC.estadoDoc?.id, 'view']">{{documentoSGC.estadoDoc?.estado}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.proceso">Proceso</span></dt>
+                <dd>
+                    <div *ngIf="documentoSGC.proceso">
+                        <a [routerLink]="['/proceso', documentoSGC.proceso?.id, 'view']">{{documentoSGC.proceso?.proceso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.documentoSGC.tipoDoc">Tipo Doc</span></dt>
+                <dd>
+                    <div *ngIf="documentoSGC.tipoDoc">
+                        <a [routerLink]="['/tipo-doc', documentoSGC.tipoDoc?.id, 'view']">{{documentoSGC.tipoDoc?.tipoDoc}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/documento-sgc', documentoSGC.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

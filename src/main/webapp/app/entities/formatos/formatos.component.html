@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.formatos.home.title">Formatos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-formatos" [routerLink]="['/formatos/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.formatos.home.createLabel">
+            Create new Formatos
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="formatos?.length === 0">
+        <span jhiTranslate="sgcApp.formatos.home.notFound">No formatos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="formatos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.formatos.nomFormato">Nom Formato</span></th>
+            <th><span jhiTranslate="sgcApp.formatos.rutaFormato">Ruta Formato</span></th>
+            <th><span jhiTranslate="sgcApp.formatos.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.formatos.documentoSGC">Documento SGC</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let formatos of formatos ;trackBy: trackId">
+                <td><a [routerLink]="['/formatos', formatos.id, 'view' ]">{{formatos.id}}</a></td>
+                <td>{{formatos.nomFormato}}</td>
+                <td>
+                    <a *ngIf="formatos.rutaFormato" (click)="openFile(formatos.rutaFormatoContentType, formatos.rutaFormato)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="formatos.rutaFormato">{{formatos.rutaFormatoContentType}}, {{byteSize(formatos.rutaFormato)}}</span>
+                </td>
+                <td>{{formatos.idDoc}}</td>
+                <td>
+                    <div *ngIf="formatos.documentoSGC">
+                        <a [routerLink]="['../documento-sgc', formatos.documentoSGC?.id, 'view' ]" >{{formatos.documentoSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/formatos', formatos.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/formatos', formatos.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'formatos', { outlets: { popup: formatos.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

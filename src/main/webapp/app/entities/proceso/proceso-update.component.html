@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proceso-heading" jhiTranslate="sgcApp.proceso.home.createOrEditLabel">Create or edit a Proceso</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.proceso.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.proceso.proceso" for="field_proceso">Proceso</label>
+                    <input type="text" class="form-control" name="proceso" id="field_proceso"
+                           formControlName="proceso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.proceso.idMacroProceso" for="field_idMacroProceso">Id Macro Proceso</label>
+                    <input type="number" class="form-control" name="idMacroProceso" id="field_idMacroProceso"
+                           formControlName="idMacroProceso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.proceso.codDoc" for="field_codDoc">Cod Doc</label>
+                    <input type="text" class="form-control" name="codDoc" id="field_codDoc"
+                           formControlName="codDoc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.proceso.macroProceso" for="field_macroProceso">Macro Proceso</label>
+                    <select class="form-control" id="field_macroProceso" name="macroProceso" formControlName="macroProceso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="macroProcesoOption.id === editForm.get('macroProceso').value?.id ? editForm.get('macroProceso').value : macroProcesoOption" *ngFor="let macroProcesoOption of macroprocesos; trackBy: trackMacroProcesoById">{{macroProcesoOption.macroProceso}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

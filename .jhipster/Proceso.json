@@ -1,0 +1,39 @@
+{
+    "name": "Proceso",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "proceso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idMacroProceso",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "codDoc",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "macroProceso",
+            "otherEntityRelationshipName": "proceso",
+            "relationshipName": "macroProceso",
+            "otherEntityField": "macroProceso"
+        }
+    ],
+    "changelogDate": "20190617075220",
+    "entityTableName": "proceso",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

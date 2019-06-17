@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-formatos-heading" jhiTranslate="sgcApp.formatos.home.createOrEditLabel">Create or edit a Formatos</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.formatos.nomFormato" for="field_nomFormato">Nom Formato</label>
+                    <input type="text" class="form-control" name="nomFormato" id="field_nomFormato"
+                           formControlName="nomFormato"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.formatos.rutaFormato" for="field_rutaFormato">Ruta Formato</label>
+                    <div>
+                        <div *ngIf="editForm.get('rutaFormato').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('rutaFormatoContentType').value, editForm.get('rutaFormato').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('rutaFormatoContentType').value}}, {{byteSize(editForm.get('rutaFormato').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({rutaFormato: null});editForm.patchValue({rutaFormatoContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_rutaFormato" (change)="setFileData($event, 'rutaFormato', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="rutaFormato" id="field_rutaFormato"
+                           formControlName="rutaFormato"/>
+                    <input type="hidden" class="form-control" name="rutaFormatoContentType" id="field_rutaFormatoContentType"
+                           formControlName="rutaFormatoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.formatos.idDoc" for="field_idDoc">Id Doc</label>
+                    <input type="number" class="form-control" name="idDoc" id="field_idDoc"
+                           formControlName="idDoc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.formatos.documentoSGC" for="field_documentoSGC">Documento SGC</label>
+                    <select class="form-control" id="field_documentoSGC" name="documentoSGC" formControlName="documentoSGC">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="documentoSGCOption.id === editForm.get('documentoSGC').value?.id ? editForm.get('documentoSGC').value : documentoSGCOption" *ngFor="let documentoSGCOption of documentosgcs; trackBy: trackDocumentoSGCById">{{documentoSGCOption.codigo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

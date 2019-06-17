@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="historialCambios">
+            <h2><span jhiTranslate="sgcApp.historialCambios.detail.title">Historial Cambios</span> {{historialCambios.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.historialCambios.code">Code</span></dt>
+                <dd>
+                    <span>{{historialCambios.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.actividad">Actividad</span></dt>
+                <dd>
+                    <span>{{historialCambios.actividad}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.cambio">Cambio</span></dt>
+                <dd>
+                    <span>{{historialCambios.cambio}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{historialCambios.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.vVigente">V Vigente</span></dt>
+                <dd>
+                    <span>{{historialCambios.vVigente}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.vObsoleta">V Obsoleta</span></dt>
+                <dd>
+                    <span>{{historialCambios.vObsoleta}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{historialCambios.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.ruta">Ruta</span></dt>
+                <dd>
+                    <div *ngIf="historialCambios.ruta">
+                        <a (click)="openFile(historialCambios.rutaContentType, historialCambios.ruta)" jhiTranslate="entity.action.open">open</a>
+                        {{historialCambios.rutaContentType}}, {{byteSize(historialCambios.ruta)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.historialCambios.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="historialCambios.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', historialCambios.documentoSGC?.id, 'view']">{{historialCambios.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/historial-cambios', historialCambios.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

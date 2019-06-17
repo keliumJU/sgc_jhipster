@@ -1,0 +1,80 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.historialCambios.home.title">Historial Cambios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-historial-cambios" [routerLink]="['/historial-cambios/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.historialCambios.home.createLabel">
+            Create new Historial Cambios
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="historialCambios?.length === 0">
+        <span jhiTranslate="sgcApp.historialCambios.home.notFound">No historialCambios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="historialCambios?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.code">Code</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.actividad">Actividad</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.cambio">Cambio</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.fecha">Fecha</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.vVigente">V Vigente</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.vObsoleta">V Obsoleta</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.ruta">Ruta</span></th>
+            <th><span jhiTranslate="sgcApp.historialCambios.documentoSGC">Documento SGC</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let historialCambios of historialCambios ;trackBy: trackId">
+                <td><a [routerLink]="['/historial-cambios', historialCambios.id, 'view' ]">{{historialCambios.id}}</a></td>
+                <td>{{historialCambios.code}}</td>
+                <td>{{historialCambios.actividad}}</td>
+                <td>{{historialCambios.cambio}}</td>
+                <td>{{historialCambios.fecha | date:'medium'}}</td>
+                <td>{{historialCambios.vVigente | date:'mediumDate'}}</td>
+                <td>{{historialCambios.vObsoleta | date:'mediumDate'}}</td>
+                <td>{{historialCambios.idDoc}}</td>
+                <td>
+                    <a *ngIf="historialCambios.ruta" (click)="openFile(historialCambios.rutaContentType, historialCambios.ruta)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="historialCambios.ruta">{{historialCambios.rutaContentType}}, {{byteSize(historialCambios.ruta)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="historialCambios.documentoSGC">
+                        <a [routerLink]="['../documento-sgc', historialCambios.documentoSGC?.id, 'view' ]" >{{historialCambios.documentoSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/historial-cambios', historialCambios.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/historial-cambios', historialCambios.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'historial-cambios', { outlets: { popup: historialCambios.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

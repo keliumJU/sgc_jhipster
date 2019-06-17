@@ -1,0 +1,23 @@
+{
+    "name": "Cargo",
+    "fields": [
+        {
+            "fieldName": "cargo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "correoInst",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190617075229",
+    "entityTableName": "cargo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,31 @@
+{
+  "sgcApp": {
+    "documentoSGC": {
+      "home": {
+        "title": "Documento SGCS",
+        "createLabel": "Crear nuevo Documento SGC",
+        "createOrEditLabel": "Crear o editar Documento SGC",
+        "notFound": "No Documento SGC found"
+      },
+      "created": "Un nuevo Documento SGC ha sido creado con el identificador {{ param }}",
+      "updated": "Un Documento SGC ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Documento SGC ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Documento SGC {{ id }}?"
+      },
+      "detail": {
+        "title": "Documento SGC"
+      },
+      "codigo": "Codigo",
+      "idProceso": "Id Proceso",
+      "idTipoDoc": "Id Tipo Doc",
+      "nomDoc": "Nom Doc",
+      "ruta": "Ruta",
+      "idEstado": "Id Estado",
+      "version": "Version",
+      "estadoDoc": "Estado Doc",
+      "proceso": "Proceso",
+      "tipoDoc": "Tipo Doc"
+    }
+  }
+}

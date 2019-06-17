@@ -1,0 +1,72 @@
+{
+    "name": "Solicitud",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idProceso",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idTipoDoc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idTipoSol",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "fechaSol",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proceso",
+            "otherEntityRelationshipName": "solicitud",
+            "relationshipName": "proceso",
+            "otherEntityField": "proceso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoDoc",
+            "otherEntityRelationshipName": "solicitud",
+            "relationshipName": "tipoDoc",
+            "otherEntityField": "tipoDoc"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoSolicitud",
+            "otherEntityRelationshipName": "solicitud",
+            "relationshipName": "tipoSolicitud",
+            "otherEntityField": "tipoSol"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "solicitud",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        }
+    ],
+    "changelogDate": "20190617075232",
+    "entityTableName": "solicitud",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

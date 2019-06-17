@@ -1,0 +1,150 @@
+//Version 0.1 de la base de datos SGC_DB para la gestion de documentos
+//que produce el SGC(Sistema de gestion de calidad)
+
+entity DocumentoSGC {
+  id Integer,
+  codigo Integer,
+  idProceso Integer,
+  idTipoDoc Integer,
+  nomDoc String required,
+  ruta Blob,
+  idEstado Integer,
+  version Integer  	
+}
+
+relationship ManyToOne {
+  DocumentoSGC{EstadoDoc(estado)} to EstadoDoc,
+  DocumentoSGC{Proceso(proceso)} to Proceso,
+  DocumentoSGC{TipoDoc(tipoDoc)} to TipoDoc,
+  Proceso{MacroProceso(macroProceso)} to MacroProceso
+  HistorialCambios{DocumentoSGC(codigo)} to DocumentoSGC
+  ElementosDocSGC{DocumentoDocSGC(codigo)} to DocumentoSGC
+  ElementosDocSGC{Elementos(elemento)} to Elementos
+  Contenido{DocumentoSGC(codigo)} to DocumentoSGC
+  Anexos{DocumentoSGC(codigo)} to DocumentoSGC
+  DocRevision{DocumentoSGC(codigo)} to DocumentoSGC
+  DocRevision{User(login)} to User
+  Formatos{DocumentoSGC(codigo)} to DocumentoSGC  
+  AjustarDoc{DocumentoSGC(codigo)} to DocumentoSGC  
+  AjustarDoc{User(login)} to User 
+  AjustarDoc{Cargo(cargo)} to Cargo  
+  AjustarDoc{AccionDoc(accion)} to AccionDoc
+  Solicitud{Proceso(proceso)} to Proceso
+  Solicitud{TipoDoc(tipoDoc)} to TipoDoc
+  Solicitud{TipoSolicitud(tipoSol)} to TipoSolicitud
+  Solicitud{DocumentoSGC(codigo)} to DocumentoSGC
+  SolRevision{User(login)} to User
+  SolRevision{Solicitud(code)} to Solicitud
+
+ }
+entity TipoDoc {
+	code Integer,
+    tipoDoc String,
+    codTip String
+}
+entity HistorialCambios{
+	code Integer,
+    actividad String,
+    cambio String,
+    fecha Instant,
+    vVigente LocalDate,
+    vObsoleta LocalDate,
+    idDoc Integer,
+    ruta Blob
+}
+entity MacroProceso{
+	code Integer,
+    macroProceso String
+}
+entity Proceso {
+	code Integer,
+    proceso String,
+    idMacroProceso Integer,
+    codDoc String
+}
+entity ElementosDocSGC{
+	id Integer,
+    idElemento Integer,
+    idDoc Integer,
+    valor String
+}
+entity Elementos{
+	id Integer,
+    elemento String,
+    descripcion String
+}
+entity Contenido{
+	id Integer,
+    actividad String,
+  	descripcion String,
+    responsable String,
+    registro String,
+    idDoc Integer
+}
+entity Anexos{
+	id Integer,
+    nomAnexo String,
+    descripcion String,
+    img Blob,
+    idPadre Integer,
+    idDoc Integer
+}
+entity DocRevision{
+	code Integer,
+    idUser String,
+    idDoc Integer,
+    comentario1 String,
+    comentario2 String
+}
+entity EstadoDoc{
+	id Integer,
+    estado String
+}
+entity Formatos{
+	id Integer,
+    nomFormato String, 
+    rutaFormato Blob,
+    idDoc Integer
+}
+entity AjustarDoc{
+	code Integer,
+    idUser String, 
+    idCargo Integer,
+    idAccion Integer,
+    idDoc Integer
+}
+entity Cargo{
+	id Integer,
+    cargo String,
+    correoInst String
+}
+entity AccionDoc{
+	id Integer,
+    accion String
+}
+entity VersionFormatos{
+	code Integer,
+    idFormato Integer,
+    rutaFormato Blob,
+    nomFormato String
+}
+entity Solicitud{
+	code Integer,
+    idProceso Integer,
+    idTipoDoc Integer,
+    idTipoSol Integer,
+    fechaSol LocalDate,
+    descripcion String,
+    idDoc Integer    
+}
+entity TipoSolicitud{
+	code Integer,
+    tipoSol String
+}
+entity SolRevision{
+	code Integer,
+    idUser Integer,
+    idSol Integer,
+    estado Boolean
+}
+

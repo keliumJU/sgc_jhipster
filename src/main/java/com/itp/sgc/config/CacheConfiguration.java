@@ -43,6 +43,25 @@ public class CacheConfiguration {
             createCache(cm, com.itp.sgc.domain.User.class.getName());
             createCache(cm, com.itp.sgc.domain.Authority.class.getName());
             createCache(cm, com.itp.sgc.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.itp.sgc.domain.DocumentoSGC.class.getName());
+            createCache(cm, com.itp.sgc.domain.TipoDoc.class.getName());
+            createCache(cm, com.itp.sgc.domain.HistorialCambios.class.getName());
+            createCache(cm, com.itp.sgc.domain.MacroProceso.class.getName());
+            createCache(cm, com.itp.sgc.domain.Proceso.class.getName());
+            createCache(cm, com.itp.sgc.domain.ElementosDocSGC.class.getName());
+            createCache(cm, com.itp.sgc.domain.Elementos.class.getName());
+            createCache(cm, com.itp.sgc.domain.Contenido.class.getName());
+            createCache(cm, com.itp.sgc.domain.Anexos.class.getName());
+            createCache(cm, com.itp.sgc.domain.DocRevision.class.getName());
+            createCache(cm, com.itp.sgc.domain.EstadoDoc.class.getName());
+            createCache(cm, com.itp.sgc.domain.Formatos.class.getName());
+            createCache(cm, com.itp.sgc.domain.AjustarDoc.class.getName());
+            createCache(cm, com.itp.sgc.domain.Cargo.class.getName());
+            createCache(cm, com.itp.sgc.domain.AccionDoc.class.getName());
+            createCache(cm, com.itp.sgc.domain.VersionFormatos.class.getName());
+            createCache(cm, com.itp.sgc.domain.Solicitud.class.getName());
+            createCache(cm, com.itp.sgc.domain.TipoSolicitud.class.getName());
+            createCache(cm, com.itp.sgc.domain.SolRevision.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

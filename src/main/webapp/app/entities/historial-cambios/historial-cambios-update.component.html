@@ -1,0 +1,93 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-historial-cambios-heading" jhiTranslate="sgcApp.historialCambios.home.createOrEditLabel">Create or edit a Historial Cambios</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.actividad" for="field_actividad">Actividad</label>
+                    <input type="text" class="form-control" name="actividad" id="field_actividad"
+                           formControlName="actividad"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.cambio" for="field_cambio">Cambio</label>
+                    <input type="text" class="form-control" name="cambio" id="field_cambio"
+                           formControlName="cambio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.fecha" for="field_fecha">Fecha</label>
+                    <div class="d-flex">
+                        <input id="field_fecha" type="datetime-local" class="form-control" name="fecha" formControlName="fecha" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.vVigente" for="field_vVigente">V Vigente</label>
+                    <div class="input-group">
+                        <input id="field_vVigente" type="text" class="form-control" name="vVigente" ngbDatepicker  #vVigenteDp="ngbDatepicker" formControlName="vVigente"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="vVigenteDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.vObsoleta" for="field_vObsoleta">V Obsoleta</label>
+                    <div class="input-group">
+                        <input id="field_vObsoleta" type="text" class="form-control" name="vObsoleta" ngbDatepicker  #vObsoletaDp="ngbDatepicker" formControlName="vObsoleta"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="vObsoletaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.idDoc" for="field_idDoc">Id Doc</label>
+                    <input type="number" class="form-control" name="idDoc" id="field_idDoc"
+                           formControlName="idDoc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.ruta" for="field_ruta">Ruta</label>
+                    <div>
+                        <div *ngIf="editForm.get('ruta').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('rutaContentType').value, editForm.get('ruta').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('rutaContentType').value}}, {{byteSize(editForm.get('ruta').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({ruta: null});editForm.patchValue({rutaContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_ruta" (change)="setFileData($event, 'ruta', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="ruta" id="field_ruta"
+                           formControlName="ruta"/>
+                    <input type="hidden" class="form-control" name="rutaContentType" id="field_rutaContentType"
+                           formControlName="rutaContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.historialCambios.documentoSGC" for="field_documentoSGC">Documento SGC</label>
+                    <select class="form-control" id="field_documentoSGC" name="documentoSGC" formControlName="documentoSGC">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="documentoSGCOption.id === editForm.get('documentoSGC').value?.id ? editForm.get('documentoSGC').value : documentoSGCOption" *ngFor="let documentoSGCOption of documentosgcs; trackBy: trackDocumentoSGCById">{{documentoSGCOption.codigo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

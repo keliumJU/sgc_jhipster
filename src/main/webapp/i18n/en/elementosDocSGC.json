@@ -1,0 +1,26 @@
+{
+  "sgcApp": {
+    "elementosDocSGC": {
+      "home": {
+        "title": "Elementos Doc SGCS",
+        "createLabel": "Create a new Elementos Doc SGC",
+        "createOrEditLabel": "Create or edit a Elementos Doc SGC",
+        "notFound": "No Elementos Doc SGC found"
+      },
+      "created": "A new Elementos Doc SGC is created with identifier {{ param }}",
+      "updated": "A Elementos Doc SGC is updated with identifier {{ param }}",
+      "deleted": "A Elementos Doc SGC is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Elementos Doc SGC {{ id }}?"
+      },
+      "detail": {
+        "title": "Elementos Doc SGC"
+      },
+      "idElemento": "Id Elemento",
+      "idDoc": "Id Doc",
+      "valor": "Valor",
+      "documentoDocSGC": "Documento Doc SGC",
+      "elementos": "Elementos"
+    }
+  }
+}

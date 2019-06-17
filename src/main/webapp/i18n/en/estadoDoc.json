@@ -1,0 +1,22 @@
+{
+  "sgcApp": {
+    "estadoDoc": {
+      "home": {
+        "title": "Estado Docs",
+        "createLabel": "Create a new Estado Doc",
+        "createOrEditLabel": "Create or edit a Estado Doc",
+        "notFound": "No Estado Doc found"
+      },
+      "created": "A new Estado Doc is created with identifier {{ param }}",
+      "updated": "A Estado Doc is updated with identifier {{ param }}",
+      "deleted": "A Estado Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Estado Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Estado Doc"
+      },
+      "estado": "Estado"
+    }
+  }
+}

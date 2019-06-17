@@ -1,0 +1,22 @@
+{
+  "sgcApp": {
+    "accionDoc": {
+      "home": {
+        "title": "Accion Docs",
+        "createLabel": "Crear nuevo Accion Doc",
+        "createOrEditLabel": "Crear o editar Accion Doc",
+        "notFound": "No Accion Doc found"
+      },
+      "created": "Un nuevo Accion Doc ha sido creado con el identificador {{ param }}",
+      "updated": "Un Accion Doc ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Accion Doc ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Accion Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Accion Doc"
+      },
+      "accion": "Accion"
+    }
+  }
+}

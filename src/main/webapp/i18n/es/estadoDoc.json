@@ -1,0 +1,22 @@
+{
+  "sgcApp": {
+    "estadoDoc": {
+      "home": {
+        "title": "Estado Docs",
+        "createLabel": "Crear nuevo Estado Doc",
+        "createOrEditLabel": "Crear o editar Estado Doc",
+        "notFound": "No Estado Doc found"
+      },
+      "created": "Un nuevo Estado Doc ha sido creado con el identificador {{ param }}",
+      "updated": "Un Estado Doc ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Estado Doc ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Estado Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Estado Doc"
+      },
+      "estado": "Estado"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-doc-revision-heading" jhiTranslate="sgcApp.docRevision.home.createOrEditLabel">Create or edit a Doc Revision</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.idUser" for="field_idUser">Id User</label>
+                    <input type="text" class="form-control" name="idUser" id="field_idUser"
+                           formControlName="idUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.idDoc" for="field_idDoc">Id Doc</label>
+                    <input type="number" class="form-control" name="idDoc" id="field_idDoc"
+                           formControlName="idDoc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.comentario1" for="field_comentario1">Comentario 1</label>
+                    <input type="text" class="form-control" name="comentario1" id="field_comentario1"
+                           formControlName="comentario1"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.comentario2" for="field_comentario2">Comentario 2</label>
+                    <input type="text" class="form-control" name="comentario2" id="field_comentario2"
+                           formControlName="comentario2"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.documentoSGC" for="field_documentoSGC">Documento SGC</label>
+                    <select class="form-control" id="field_documentoSGC" name="documentoSGC" formControlName="documentoSGC">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="documentoSGCOption.id === editForm.get('documentoSGC').value?.id ? editForm.get('documentoSGC').value : documentoSGCOption" *ngFor="let documentoSGCOption of documentosgcs; trackBy: trackDocumentoSGCById">{{documentoSGCOption.codigo}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.docRevision.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user').value?.id ? editForm.get('user').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

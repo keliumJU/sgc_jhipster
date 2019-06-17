@@ -1,0 +1,93 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.solicitud.home.title">Solicituds</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-solicitud" [routerLink]="['/solicitud/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.solicitud.home.createLabel">
+            Create new Solicitud
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="solicituds?.length === 0">
+        <span jhiTranslate="sgcApp.solicitud.home.notFound">No solicituds found</span>
+    </div>
+    <div class="table-responsive" *ngIf="solicituds?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.code">Code</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.idProceso">Id Proceso</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.idTipoDoc">Id Tipo Doc</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.idTipoSol">Id Tipo Sol</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.fechaSol">Fecha Sol</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.proceso">Proceso</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.tipoDoc">Tipo Doc</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.tipoSolicitud">Tipo Solicitud</span></th>
+            <th><span jhiTranslate="sgcApp.solicitud.documentoSGC">Documento SGC</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let solicitud of solicituds ;trackBy: trackId">
+                <td><a [routerLink]="['/solicitud', solicitud.id, 'view' ]">{{solicitud.id}}</a></td>
+                <td>{{solicitud.code}}</td>
+                <td>{{solicitud.idProceso}}</td>
+                <td>{{solicitud.idTipoDoc}}</td>
+                <td>{{solicitud.idTipoSol}}</td>
+                <td>{{solicitud.fechaSol | date:'mediumDate'}}</td>
+                <td>{{solicitud.descripcion}}</td>
+                <td>{{solicitud.idDoc}}</td>
+                <td>
+                    <div *ngIf="solicitud.proceso">
+                        <a [routerLink]="['../proceso', solicitud.proceso?.id, 'view' ]" >{{solicitud.proceso?.proceso}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="solicitud.tipoDoc">
+                        <a [routerLink]="['../tipo-doc', solicitud.tipoDoc?.id, 'view' ]" >{{solicitud.tipoDoc?.tipoDoc}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="solicitud.tipoSolicitud">
+                        <a [routerLink]="['../tipo-solicitud', solicitud.tipoSolicitud?.id, 'view' ]" >{{solicitud.tipoSolicitud?.tipoSol}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="solicitud.documentoSGC">
+                        <a [routerLink]="['../documento-sgc', solicitud.documentoSGC?.id, 'view' ]" >{{solicitud.documentoSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/solicitud', solicitud.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/solicitud', solicitud.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'solicitud', { outlets: { popup: solicitud.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

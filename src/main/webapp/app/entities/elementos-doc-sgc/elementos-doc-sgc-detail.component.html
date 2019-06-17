@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="elementosDocSGC">
+            <h2><span jhiTranslate="sgcApp.elementosDocSGC.detail.title">Elementos Doc SGC</span> {{elementosDocSGC.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.elementosDocSGC.idElemento">Id Elemento</span></dt>
+                <dd>
+                    <span>{{elementosDocSGC.idElemento}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.elementosDocSGC.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{elementosDocSGC.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.elementosDocSGC.valor">Valor</span></dt>
+                <dd>
+                    <span>{{elementosDocSGC.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.elementosDocSGC.documentoDocSGC">Documento Doc SGC</span></dt>
+                <dd>
+                    <div *ngIf="elementosDocSGC.documentoDocSGC">
+                        <a [routerLink]="['/documento-sgc', elementosDocSGC.documentoDocSGC?.id, 'view']">{{elementosDocSGC.documentoDocSGC?.codigo}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.elementosDocSGC.elementos">Elementos</span></dt>
+                <dd>
+                    <div *ngIf="elementosDocSGC.elementos">
+                        <a [routerLink]="['/elementos', elementosDocSGC.elementos?.id, 'view']">{{elementosDocSGC.elementos?.elemento}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/elementos-doc-sgc', elementosDocSGC.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+    "name": "EstadoDoc",
+    "fields": [
+        {
+            "fieldName": "estado",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190617075226",
+    "entityTableName": "estado_doc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

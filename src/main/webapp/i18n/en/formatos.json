@@ -1,0 +1,25 @@
+{
+  "sgcApp": {
+    "formatos": {
+      "home": {
+        "title": "Formatos",
+        "createLabel": "Create a new Formatos",
+        "createOrEditLabel": "Create or edit a Formatos",
+        "notFound": "No Formatos found"
+      },
+      "created": "A new Formatos is created with identifier {{ param }}",
+      "updated": "A Formatos is updated with identifier {{ param }}",
+      "deleted": "A Formatos is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Formatos {{ id }}?"
+      },
+      "detail": {
+        "title": "Formatos"
+      },
+      "nomFormato": "Nom Formato",
+      "rutaFormato": "Ruta Formato",
+      "idDoc": "Id Doc",
+      "documentoSGC": "Documento SGC"
+    }
+  }
+}
