@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.docRevision.home.title">Doc Revisions</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-doc-revision" [routerLink]="['/doc-revision/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.docRevision.home.createLabel">
+            Create new Doc Revision
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="docRevisions?.length === 0">
+        <span jhiTranslate="sgcApp.docRevision.home.notFound">No docRevisions found</span>
+    </div>
+    <div class="table-responsive" *ngIf="docRevisions?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.code">Code</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.idUser">Id User</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.comentario1">Comentario 1</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.comentario2">Comentario 2</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.documentoSGC">Documento SGC</span></th>
+            <th><span jhiTranslate="sgcApp.docRevision.user">User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let docRevision of docRevisions ;trackBy: trackId">
+                <td><a [routerLink]="['/doc-revision', docRevision.id, 'view' ]">{{docRevision.id}}</a></td>
+                <td>{{docRevision.code}}</td>
+                <td>{{docRevision.idUser}}</td>
+                <td>{{docRevision.idDoc}}</td>
+                <td>{{docRevision.comentario1}}</td>
+                <td>{{docRevision.comentario2}}</td>
+                <td>
+                    <div *ngIf="docRevision.documentoSGC">
+                        <a [routerLink]="['../documento-sgc', docRevision.documentoSGC?.id, 'view' ]" >{{docRevision.documentoSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{docRevision.user?.login}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/doc-revision', docRevision.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/doc-revision', docRevision.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'doc-revision', { outlets: { popup: docRevision.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

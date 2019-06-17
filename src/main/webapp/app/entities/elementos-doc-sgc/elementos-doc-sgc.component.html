@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.elementosDocSGC.home.title">Elementos Doc SGCS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-elementos-doc-sgc" [routerLink]="['/elementos-doc-sgc/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.elementosDocSGC.home.createLabel">
+            Create new Elementos Doc SGC
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="elementosDocSGCS?.length === 0">
+        <span jhiTranslate="sgcApp.elementosDocSGC.home.notFound">No elementosDocSGCS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="elementosDocSGCS?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.elementosDocSGC.idElemento">Id Elemento</span></th>
+            <th><span jhiTranslate="sgcApp.elementosDocSGC.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.elementosDocSGC.valor">Valor</span></th>
+            <th><span jhiTranslate="sgcApp.elementosDocSGC.documentoDocSGC">Documento Doc SGC</span></th>
+            <th><span jhiTranslate="sgcApp.elementosDocSGC.elementos">Elementos</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let elementosDocSGC of elementosDocSGCS ;trackBy: trackId">
+                <td><a [routerLink]="['/elementos-doc-sgc', elementosDocSGC.id, 'view' ]">{{elementosDocSGC.id}}</a></td>
+                <td>{{elementosDocSGC.idElemento}}</td>
+                <td>{{elementosDocSGC.idDoc}}</td>
+                <td>{{elementosDocSGC.valor}}</td>
+                <td>
+                    <div *ngIf="elementosDocSGC.documentoDocSGC">
+                        <a [routerLink]="['../documento-sgc', elementosDocSGC.documentoDocSGC?.id, 'view' ]" >{{elementosDocSGC.documentoDocSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="elementosDocSGC.elementos">
+                        <a [routerLink]="['../elementos', elementosDocSGC.elementos?.id, 'view' ]" >{{elementosDocSGC.elementos?.elemento}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/elementos-doc-sgc', elementosDocSGC.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/elementos-doc-sgc', elementosDocSGC.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'elementos-doc-sgc', { outlets: { popup: elementosDocSGC.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

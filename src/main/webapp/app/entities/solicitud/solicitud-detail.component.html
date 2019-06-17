@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="solicitud">
+            <h2><span jhiTranslate="sgcApp.solicitud.detail.title">Solicitud</span> {{solicitud.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.solicitud.code">Code</span></dt>
+                <dd>
+                    <span>{{solicitud.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.idProceso">Id Proceso</span></dt>
+                <dd>
+                    <span>{{solicitud.idProceso}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.idTipoDoc">Id Tipo Doc</span></dt>
+                <dd>
+                    <span>{{solicitud.idTipoDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.idTipoSol">Id Tipo Sol</span></dt>
+                <dd>
+                    <span>{{solicitud.idTipoSol}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.fechaSol">Fecha Sol</span></dt>
+                <dd>
+                    <span>{{solicitud.fechaSol}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{solicitud.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{solicitud.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.proceso">Proceso</span></dt>
+                <dd>
+                    <div *ngIf="solicitud.proceso">
+                        <a [routerLink]="['/proceso', solicitud.proceso?.id, 'view']">{{solicitud.proceso?.proceso}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.tipoDoc">Tipo Doc</span></dt>
+                <dd>
+                    <div *ngIf="solicitud.tipoDoc">
+                        <a [routerLink]="['/tipo-doc', solicitud.tipoDoc?.id, 'view']">{{solicitud.tipoDoc?.tipoDoc}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.tipoSolicitud">Tipo Solicitud</span></dt>
+                <dd>
+                    <div *ngIf="solicitud.tipoSolicitud">
+                        <a [routerLink]="['/tipo-solicitud', solicitud.tipoSolicitud?.id, 'view']">{{solicitud.tipoSolicitud?.tipoSol}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.solicitud.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="solicitud.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', solicitud.documentoSGC?.id, 'view']">{{solicitud.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/solicitud', solicitud.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

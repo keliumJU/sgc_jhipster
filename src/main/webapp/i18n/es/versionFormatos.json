@@ -1,0 +1,25 @@
+{
+  "sgcApp": {
+    "versionFormatos": {
+      "home": {
+        "title": "Version Formatos",
+        "createLabel": "Crear nuevo Version Formatos",
+        "createOrEditLabel": "Crear o editar Version Formatos",
+        "notFound": "No Version Formatos found"
+      },
+      "created": "Un nuevo Version Formatos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Version Formatos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Version Formatos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Version Formatos {{ id }}?"
+      },
+      "detail": {
+        "title": "Version Formatos"
+      },
+      "code": "Code",
+      "idFormato": "Id Formato",
+      "rutaFormato": "Ruta Formato",
+      "nomFormato": "Nom Formato"
+    }
+  }
+}

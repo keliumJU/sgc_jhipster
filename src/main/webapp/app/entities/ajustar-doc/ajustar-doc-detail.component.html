@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="ajustarDoc">
+            <h2><span jhiTranslate="sgcApp.ajustarDoc.detail.title">Ajustar Doc</span> {{ajustarDoc.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.code">Code</span></dt>
+                <dd>
+                    <span>{{ajustarDoc.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.idUser">Id User</span></dt>
+                <dd>
+                    <span>{{ajustarDoc.idUser}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.idCargo">Id Cargo</span></dt>
+                <dd>
+                    <span>{{ajustarDoc.idCargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.idAccion">Id Accion</span></dt>
+                <dd>
+                    <span>{{ajustarDoc.idAccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{ajustarDoc.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="ajustarDoc.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', ajustarDoc.documentoSGC?.id, 'view']">{{ajustarDoc.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.user">User</span></dt>
+                <dd>
+                    {{ajustarDoc.user?.login}}
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.cargo">Cargo</span></dt>
+                <dd>
+                    <div *ngIf="ajustarDoc.cargo">
+                        <a [routerLink]="['/cargo', ajustarDoc.cargo?.id, 'view']">{{ajustarDoc.cargo?.cargo}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.ajustarDoc.accionDoc">Accion Doc</span></dt>
+                <dd>
+                    <div *ngIf="ajustarDoc.accionDoc">
+                        <a [routerLink]="['/accion-doc', ajustarDoc.accionDoc?.id, 'view']">{{ajustarDoc.accionDoc?.accion}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/ajustar-doc', ajustarDoc.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

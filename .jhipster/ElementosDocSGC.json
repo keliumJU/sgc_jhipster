@@ -1,0 +1,42 @@
+{
+    "name": "ElementosDocSGC",
+    "fields": [
+        {
+            "fieldName": "idElemento",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "valor",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "elementosDocSGC",
+            "relationshipName": "documentoDocSGC",
+            "otherEntityField": "codigo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "elementos",
+            "otherEntityRelationshipName": "elementosDocSGC",
+            "relationshipName": "elementos",
+            "otherEntityField": "elemento"
+        }
+    ],
+    "changelogDate": "20190617075221",
+    "entityTableName": "elementos_doc_sgc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

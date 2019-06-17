@@ -1,0 +1,25 @@
+{
+  "sgcApp": {
+    "formatos": {
+      "home": {
+        "title": "Formatos",
+        "createLabel": "Crear nuevo Formatos",
+        "createOrEditLabel": "Crear o editar Formatos",
+        "notFound": "No Formatos found"
+      },
+      "created": "Un nuevo Formatos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Formatos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Formatos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Formatos {{ id }}?"
+      },
+      "detail": {
+        "title": "Formatos"
+      },
+      "nomFormato": "Nom Formato",
+      "rutaFormato": "Ruta Formato",
+      "idDoc": "Id Doc",
+      "documentoSGC": "Documento SGC"
+    }
+  }
+}

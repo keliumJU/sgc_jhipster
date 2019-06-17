@@ -1,0 +1,24 @@
+{
+  "sgcApp": {
+    "tipoDoc": {
+      "home": {
+        "title": "Tipo Docs",
+        "createLabel": "Create a new Tipo Doc",
+        "createOrEditLabel": "Create or edit a Tipo Doc",
+        "notFound": "No Tipo Doc found"
+      },
+      "created": "A new Tipo Doc is created with identifier {{ param }}",
+      "updated": "A Tipo Doc is updated with identifier {{ param }}",
+      "deleted": "A Tipo Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Doc"
+      },
+      "code": "Code",
+      "tipoDoc": "Tipo Doc",
+      "codTip": "Cod Tip"
+    }
+  }
+}

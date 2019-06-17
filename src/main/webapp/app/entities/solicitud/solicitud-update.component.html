@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-solicitud-heading" jhiTranslate="sgcApp.solicitud.home.createOrEditLabel">Create or edit a Solicitud</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.idProceso" for="field_idProceso">Id Proceso</label>
+                    <input type="number" class="form-control" name="idProceso" id="field_idProceso"
+                           formControlName="idProceso"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.idTipoDoc" for="field_idTipoDoc">Id Tipo Doc</label>
+                    <input type="number" class="form-control" name="idTipoDoc" id="field_idTipoDoc"
+                           formControlName="idTipoDoc"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.idTipoSol" for="field_idTipoSol">Id Tipo Sol</label>
+                    <input type="number" class="form-control" name="idTipoSol" id="field_idTipoSol"
+                           formControlName="idTipoSol"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.fechaSol" for="field_fechaSol">Fecha Sol</label>
+                    <div class="input-group">
+                        <input id="field_fechaSol" type="text" class="form-control" name="fechaSol" ngbDatepicker  #fechaSolDp="ngbDatepicker" formControlName="fechaSol"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaSolDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.idDoc" for="field_idDoc">Id Doc</label>
+                    <input type="number" class="form-control" name="idDoc" id="field_idDoc"
+                           formControlName="idDoc"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.proceso" for="field_proceso">Proceso</label>
+                    <select class="form-control" id="field_proceso" name="proceso" formControlName="proceso">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="procesoOption.id === editForm.get('proceso').value?.id ? editForm.get('proceso').value : procesoOption" *ngFor="let procesoOption of procesos; trackBy: trackProcesoById">{{procesoOption.proceso}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.tipoDoc" for="field_tipoDoc">Tipo Doc</label>
+                    <select class="form-control" id="field_tipoDoc" name="tipoDoc" formControlName="tipoDoc">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoDocOption.id === editForm.get('tipoDoc').value?.id ? editForm.get('tipoDoc').value : tipoDocOption" *ngFor="let tipoDocOption of tipodocs; trackBy: trackTipoDocById">{{tipoDocOption.tipoDoc}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.tipoSolicitud" for="field_tipoSolicitud">Tipo Solicitud</label>
+                    <select class="form-control" id="field_tipoSolicitud" name="tipoSolicitud" formControlName="tipoSolicitud">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoSolicitudOption.id === editForm.get('tipoSolicitud').value?.id ? editForm.get('tipoSolicitud').value : tipoSolicitudOption" *ngFor="let tipoSolicitudOption of tiposolicituds; trackBy: trackTipoSolicitudById">{{tipoSolicitudOption.tipoSol}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solicitud.documentoSGC" for="field_documentoSGC">Documento SGC</label>
+                    <select class="form-control" id="field_documentoSGC" name="documentoSGC" formControlName="documentoSGC">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="documentoSGCOption.id === editForm.get('documentoSGC').value?.id ? editForm.get('documentoSGC').value : documentoSGCOption" *ngFor="let documentoSGCOption of documentosgcs; trackBy: trackDocumentoSGCById">{{documentoSGCOption.codigo}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

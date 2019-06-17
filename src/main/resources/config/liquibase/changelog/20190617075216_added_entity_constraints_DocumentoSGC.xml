@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DocumentoSGC.
+    -->
+    <changeSet id="20190617075216-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="estado_doc_id"
+                                 baseTableName="documento_sgc"
+                                 constraintName="fk_documento_sgc_estado_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="estado_doc"/>
+
+        <addForeignKeyConstraint baseColumnNames="proceso_id"
+                                 baseTableName="documento_sgc"
+                                 constraintName="fk_documento_sgc_proceso_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="proceso"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_doc_id"
+                                 baseTableName="documento_sgc"
+                                 constraintName="fk_documento_sgc_tipo_doc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_doc"/>
+
+    </changeSet>
+</databaseChangeLog>

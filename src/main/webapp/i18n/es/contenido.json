@@ -1,0 +1,27 @@
+{
+  "sgcApp": {
+    "contenido": {
+      "home": {
+        "title": "Contenidos",
+        "createLabel": "Crear nuevo Contenido",
+        "createOrEditLabel": "Crear o editar Contenido",
+        "notFound": "No Contenido found"
+      },
+      "created": "Un nuevo Contenido ha sido creado con el identificador {{ param }}",
+      "updated": "Un Contenido ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Contenido ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Contenido {{ id }}?"
+      },
+      "detail": {
+        "title": "Contenido"
+      },
+      "actividad": "Actividad",
+      "descripcion": "Descripcion",
+      "responsable": "Responsable",
+      "registro": "Registro",
+      "idDoc": "Id Doc",
+      "documentoSGC": "Documento SGC"
+    }
+  }
+}

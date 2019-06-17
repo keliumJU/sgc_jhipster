@@ -1,0 +1,23 @@
+{
+  "sgcApp": {
+    "cargo": {
+      "home": {
+        "title": "Cargos",
+        "createLabel": "Create a new Cargo",
+        "createOrEditLabel": "Create or edit a Cargo",
+        "notFound": "No Cargo found"
+      },
+      "created": "A new Cargo is created with identifier {{ param }}",
+      "updated": "A Cargo is updated with identifier {{ param }}",
+      "deleted": "A Cargo is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Cargo {{ id }}?"
+      },
+      "detail": {
+        "title": "Cargo"
+      },
+      "cargo": "Cargo",
+      "correoInst": "Correo Inst"
+    }
+  }
+}

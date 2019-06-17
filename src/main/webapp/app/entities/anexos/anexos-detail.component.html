@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="anexos">
+            <h2><span jhiTranslate="sgcApp.anexos.detail.title">Anexos</span> {{anexos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.anexos.nomAnexo">Nom Anexo</span></dt>
+                <dd>
+                    <span>{{anexos.nomAnexo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.anexos.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{anexos.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.anexos.img">Img</span></dt>
+                <dd>
+                    <div *ngIf="anexos.img">
+                        <a (click)="openFile(anexos.imgContentType, anexos.img)" jhiTranslate="entity.action.open">open</a>
+                        {{anexos.imgContentType}}, {{byteSize(anexos.img)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.anexos.idPadre">Id Padre</span></dt>
+                <dd>
+                    <span>{{anexos.idPadre}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.anexos.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{anexos.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.anexos.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="anexos.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', anexos.documentoSGC?.id, 'view']">{{anexos.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/anexos', anexos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

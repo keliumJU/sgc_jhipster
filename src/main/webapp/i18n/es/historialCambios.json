@@ -1,0 +1,30 @@
+{
+  "sgcApp": {
+    "historialCambios": {
+      "home": {
+        "title": "Historial Cambios",
+        "createLabel": "Crear nuevo Historial Cambios",
+        "createOrEditLabel": "Crear o editar Historial Cambios",
+        "notFound": "No Historial Cambios found"
+      },
+      "created": "Un nuevo Historial Cambios ha sido creado con el identificador {{ param }}",
+      "updated": "Un Historial Cambios ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Historial Cambios ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Historial Cambios {{ id }}?"
+      },
+      "detail": {
+        "title": "Historial Cambios"
+      },
+      "code": "Code",
+      "actividad": "Actividad",
+      "cambio": "Cambio",
+      "fecha": "Fecha",
+      "vVigente": "V Vigente",
+      "vObsoleta": "V Obsoleta",
+      "idDoc": "Id Doc",
+      "ruta": "Ruta",
+      "documentoSGC": "Documento SGC"
+    }
+  }
+}

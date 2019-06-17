@@ -1,0 +1,90 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.documentoSGC.home.title">Documento SGCS</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-documento-sgc" [routerLink]="['/documento-sgc/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.documentoSGC.home.createLabel">
+            Create new Documento SGC
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="documentoSGCS?.length === 0">
+        <span jhiTranslate="sgcApp.documentoSGC.home.notFound">No documentoSGCS found</span>
+    </div>
+    <div class="table-responsive" *ngIf="documentoSGCS?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.codigo">Codigo</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.idProceso">Id Proceso</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.idTipoDoc">Id Tipo Doc</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.nomDoc">Nom Doc</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.ruta">Ruta</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.idEstado">Id Estado</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.version">Version</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.estadoDoc">Estado Doc</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.proceso">Proceso</span></th>
+            <th><span jhiTranslate="sgcApp.documentoSGC.tipoDoc">Tipo Doc</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let documentoSGC of documentoSGCS ;trackBy: trackId">
+                <td><a [routerLink]="['/documento-sgc', documentoSGC.id, 'view' ]">{{documentoSGC.id}}</a></td>
+                <td>{{documentoSGC.codigo}}</td>
+                <td>{{documentoSGC.idProceso}}</td>
+                <td>{{documentoSGC.idTipoDoc}}</td>
+                <td>{{documentoSGC.nomDoc}}</td>
+                <td>
+                    <a *ngIf="documentoSGC.ruta" (click)="openFile(documentoSGC.rutaContentType, documentoSGC.ruta)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="documentoSGC.ruta">{{documentoSGC.rutaContentType}}, {{byteSize(documentoSGC.ruta)}}</span>
+                </td>
+                <td>{{documentoSGC.idEstado}}</td>
+                <td>{{documentoSGC.version}}</td>
+                <td>
+                    <div *ngIf="documentoSGC.estadoDoc">
+                        <a [routerLink]="['../estado-doc', documentoSGC.estadoDoc?.id, 'view' ]" >{{documentoSGC.estadoDoc?.estado}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="documentoSGC.proceso">
+                        <a [routerLink]="['../proceso', documentoSGC.proceso?.id, 'view' ]" >{{documentoSGC.proceso?.proceso}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="documentoSGC.tipoDoc">
+                        <a [routerLink]="['../tipo-doc', documentoSGC.tipoDoc?.id, 'view' ]" >{{documentoSGC.tipoDoc?.tipoDoc}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/documento-sgc', documentoSGC.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/documento-sgc', documentoSGC.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'documento-sgc', { outlets: { popup: documentoSGC.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

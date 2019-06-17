@@ -1,0 +1,69 @@
+{
+    "name": "DocumentoSGC",
+    "fields": [
+        {
+            "fieldName": "codigo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idProceso",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idTipoDoc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "nomDoc",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ruta",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "idEstado",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "estadoDoc",
+            "otherEntityRelationshipName": "documentoSGC",
+            "relationshipName": "estadoDoc",
+            "otherEntityField": "estado"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "proceso",
+            "otherEntityRelationshipName": "documentoSGC",
+            "relationshipName": "proceso",
+            "otherEntityField": "proceso"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tipoDoc",
+            "otherEntityRelationshipName": "documentoSGC",
+            "relationshipName": "tipoDoc",
+            "otherEntityField": "tipoDoc"
+        }
+    ],
+    "changelogDate": "20190617075216",
+    "entityTableName": "documento_sgc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,28 @@
+{
+  "sgcApp": {
+    "docRevision": {
+      "home": {
+        "title": "Doc Revisions",
+        "createLabel": "Create a new Doc Revision",
+        "createOrEditLabel": "Create or edit a Doc Revision",
+        "notFound": "No Doc Revision found"
+      },
+      "created": "A new Doc Revision is created with identifier {{ param }}",
+      "updated": "A Doc Revision is updated with identifier {{ param }}",
+      "deleted": "A Doc Revision is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Doc Revision {{ id }}?"
+      },
+      "detail": {
+        "title": "Doc Revision"
+      },
+      "code": "Code",
+      "idUser": "Id User",
+      "idDoc": "Id Doc",
+      "comentario1": "Comentario 1",
+      "comentario2": "Comentario 2",
+      "documentoSGC": "Documento SGC",
+      "user": "User"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sol-revision-heading" jhiTranslate="sgcApp.solRevision.home.createOrEditLabel">Create or edit a Sol Revision</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.code" for="field_code">Code</label>
+                    <input type="number" class="form-control" name="code" id="field_code"
+                           formControlName="code"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.idUser" for="field_idUser">Id User</label>
+                    <input type="number" class="form-control" name="idUser" id="field_idUser"
+                           formControlName="idUser"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.idSol" for="field_idSol">Id Sol</label>
+                    <input type="number" class="form-control" name="idSol" id="field_idSol"
+                           formControlName="idSol"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.estado" for="field_estado">Estado</label>
+                    <input type="checkbox" class="form-control" name="estado" id="field_estado"
+                           formControlName="estado"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user').value?.id ? editForm.get('user').value : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="sgcApp.solRevision.solicitud" for="field_solicitud">Solicitud</label>
+                    <select class="form-control" id="field_solicitud" name="solicitud" formControlName="solicitud">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="solicitudOption.id === editForm.get('solicitud').value?.id ? editForm.get('solicitud').value : solicitudOption" *ngFor="let solicitudOption of solicituds; trackBy: trackSolicitudById">{{solicitudOption.code}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

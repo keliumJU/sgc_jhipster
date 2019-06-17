@@ -1,0 +1,46 @@
+{
+    "name": "SolRevision",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idUser",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idSol",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "estado",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "solRevision",
+            "relationshipName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "solicitud",
+            "otherEntityRelationshipName": "solRevision",
+            "relationshipName": "solicitud",
+            "otherEntityField": "code"
+        }
+    ],
+    "changelogDate": "20190617075234",
+    "entityTableName": "sol_revision",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

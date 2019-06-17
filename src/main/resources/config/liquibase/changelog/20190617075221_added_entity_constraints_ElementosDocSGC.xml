@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity ElementosDocSGC.
+    -->
+    <changeSet id="20190617075221-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="documento_docsgc_id"
+                                 baseTableName="elementos_doc_sgc"
+                                 constraintName="fk_elementos_doc_sgc_documento_docsgc_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="documento_sgc"/>
+
+        <addForeignKeyConstraint baseColumnNames="elementos_id"
+                                 baseTableName="elementos_doc_sgc"
+                                 constraintName="fk_elementos_doc_sgc_elementos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="elementos"/>
+
+    </changeSet>
+</databaseChangeLog>

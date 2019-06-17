@@ -1,0 +1,50 @@
+{
+    "name": "DocRevision",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idUser",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "comentario1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "comentario2",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "docRevision",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "docRevision",
+            "relationshipName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20190617075225",
+    "entityTableName": "doc_revision",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

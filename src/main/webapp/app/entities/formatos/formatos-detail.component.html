@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="formatos">
+            <h2><span jhiTranslate="sgcApp.formatos.detail.title">Formatos</span> {{formatos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.formatos.nomFormato">Nom Formato</span></dt>
+                <dd>
+                    <span>{{formatos.nomFormato}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.formatos.rutaFormato">Ruta Formato</span></dt>
+                <dd>
+                    <div *ngIf="formatos.rutaFormato">
+                        <a (click)="openFile(formatos.rutaFormatoContentType, formatos.rutaFormato)" jhiTranslate="entity.action.open">open</a>
+                        {{formatos.rutaFormatoContentType}}, {{byteSize(formatos.rutaFormato)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.formatos.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{formatos.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.formatos.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="formatos.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', formatos.documentoSGC?.id, 'view']">{{formatos.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/formatos', formatos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

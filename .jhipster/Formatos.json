@@ -1,0 +1,36 @@
+{
+    "name": "Formatos",
+    "fields": [
+        {
+            "fieldName": "nomFormato",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "rutaFormato",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "formatos",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        }
+    ],
+    "changelogDate": "20190617075227",
+    "entityTableName": "formatos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

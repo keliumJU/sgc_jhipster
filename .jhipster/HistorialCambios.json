@@ -1,0 +1,56 @@
+{
+    "name": "HistorialCambios",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "actividad",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cambio",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "vVigente",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "vObsoleta",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ruta",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "historialCambios",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        }
+    ],
+    "changelogDate": "20190617075218",
+    "entityTableName": "historial_cambios",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

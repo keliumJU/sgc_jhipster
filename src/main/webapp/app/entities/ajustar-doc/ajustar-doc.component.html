@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="sgcApp.ajustarDoc.home.title">Ajustar Docs</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ajustar-doc" [routerLink]="['/ajustar-doc/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="sgcApp.ajustarDoc.home.createLabel">
+            Create new Ajustar Doc
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="ajustarDocs?.length === 0">
+        <span jhiTranslate="sgcApp.ajustarDoc.home.notFound">No ajustarDocs found</span>
+    </div>
+    <div class="table-responsive" *ngIf="ajustarDocs?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.code">Code</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.idUser">Id User</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.idCargo">Id Cargo</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.idAccion">Id Accion</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.idDoc">Id Doc</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.documentoSGC">Documento SGC</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.user">User</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.cargo">Cargo</span></th>
+            <th><span jhiTranslate="sgcApp.ajustarDoc.accionDoc">Accion Doc</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ajustarDoc of ajustarDocs ;trackBy: trackId">
+                <td><a [routerLink]="['/ajustar-doc', ajustarDoc.id, 'view' ]">{{ajustarDoc.id}}</a></td>
+                <td>{{ajustarDoc.code}}</td>
+                <td>{{ajustarDoc.idUser}}</td>
+                <td>{{ajustarDoc.idCargo}}</td>
+                <td>{{ajustarDoc.idAccion}}</td>
+                <td>{{ajustarDoc.idDoc}}</td>
+                <td>
+                    <div *ngIf="ajustarDoc.documentoSGC">
+                        <a [routerLink]="['../documento-sgc', ajustarDoc.documentoSGC?.id, 'view' ]" >{{ajustarDoc.documentoSGC?.codigo}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{ajustarDoc.user?.login}}
+                </td>
+                <td>
+                    <div *ngIf="ajustarDoc.cargo">
+                        <a [routerLink]="['../cargo', ajustarDoc.cargo?.id, 'view' ]" >{{ajustarDoc.cargo?.cargo}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ajustarDoc.accionDoc">
+                        <a [routerLink]="['../accion-doc', ajustarDoc.accionDoc?.id, 'view' ]" >{{ajustarDoc.accionDoc?.accion}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/ajustar-doc', ajustarDoc.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/ajustar-doc', ajustarDoc.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'ajustar-doc', { outlets: { popup: ajustarDoc.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

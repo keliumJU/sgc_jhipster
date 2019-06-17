@@ -1,0 +1,27 @@
+{
+  "sgcApp": {
+    "solRevision": {
+      "home": {
+        "title": "Sol Revisions",
+        "createLabel": "Crear nuevo Sol Revision",
+        "createOrEditLabel": "Crear o editar Sol Revision",
+        "notFound": "No Sol Revision found"
+      },
+      "created": "Un nuevo Sol Revision ha sido creado con el identificador {{ param }}",
+      "updated": "Un Sol Revision ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Sol Revision ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Sol Revision {{ id }}?"
+      },
+      "detail": {
+        "title": "Sol Revision"
+      },
+      "code": "Code",
+      "idUser": "Id User",
+      "idSol": "Id Sol",
+      "estado": "Estado",
+      "user": "User",
+      "solicitud": "Solicitud"
+    }
+  }
+}

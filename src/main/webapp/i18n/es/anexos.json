@@ -1,0 +1,27 @@
+{
+  "sgcApp": {
+    "anexos": {
+      "home": {
+        "title": "Anexos",
+        "createLabel": "Crear nuevo Anexos",
+        "createOrEditLabel": "Crear o editar Anexos",
+        "notFound": "No Anexos found"
+      },
+      "created": "Un nuevo Anexos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Anexos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Anexos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Anexos {{ id }}?"
+      },
+      "detail": {
+        "title": "Anexos"
+      },
+      "nomAnexo": "Nom Anexo",
+      "descripcion": "Descripcion",
+      "img": "Img",
+      "idPadre": "Id Padre",
+      "idDoc": "Id Doc",
+      "documentoSGC": "Documento SGC"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="contenido">
+            <h2><span jhiTranslate="sgcApp.contenido.detail.title">Contenido</span> {{contenido.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.contenido.actividad">Actividad</span></dt>
+                <dd>
+                    <span>{{contenido.actividad}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.contenido.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{contenido.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.contenido.responsable">Responsable</span></dt>
+                <dd>
+                    <span>{{contenido.responsable}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.contenido.registro">Registro</span></dt>
+                <dd>
+                    <span>{{contenido.registro}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.contenido.idDoc">Id Doc</span></dt>
+                <dd>
+                    <span>{{contenido.idDoc}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.contenido.documentoSGC">Documento SGC</span></dt>
+                <dd>
+                    <div *ngIf="contenido.documentoSGC">
+                        <a [routerLink]="['/documento-sgc', contenido.documentoSGC?.id, 'view']">{{contenido.documentoSGC?.codigo}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/contenido', contenido.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cargo">
+            <h2><span jhiTranslate="sgcApp.cargo.detail.title">Cargo</span> {{cargo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.cargo.cargo">Cargo</span></dt>
+                <dd>
+                    <span>{{cargo.cargo}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.cargo.correoInst">Correo Inst</span></dt>
+                <dd>
+                    <span>{{cargo.correoInst}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cargo', cargo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

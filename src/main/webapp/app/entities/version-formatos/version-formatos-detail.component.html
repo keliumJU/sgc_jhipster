@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="versionFormatos">
+            <h2><span jhiTranslate="sgcApp.versionFormatos.detail.title">Version Formatos</span> {{versionFormatos.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="sgcApp.versionFormatos.code">Code</span></dt>
+                <dd>
+                    <span>{{versionFormatos.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.versionFormatos.idFormato">Id Formato</span></dt>
+                <dd>
+                    <span>{{versionFormatos.idFormato}}</span>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.versionFormatos.rutaFormato">Ruta Formato</span></dt>
+                <dd>
+                    <div *ngIf="versionFormatos.rutaFormato">
+                        <a (click)="openFile(versionFormatos.rutaFormatoContentType, versionFormatos.rutaFormato)" jhiTranslate="entity.action.open">open</a>
+                        {{versionFormatos.rutaFormatoContentType}}, {{byteSize(versionFormatos.rutaFormato)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="sgcApp.versionFormatos.nomFormato">Nom Formato</span></dt>
+                <dd>
+                    <span>{{versionFormatos.nomFormato}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/version-formatos', versionFormatos.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+{
+    "name": "AccionDoc",
+    "fields": [
+        {
+            "fieldName": "accion",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190617075230",
+    "entityTableName": "accion_doc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

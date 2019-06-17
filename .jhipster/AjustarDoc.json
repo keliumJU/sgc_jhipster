@@ -1,0 +1,64 @@
+{
+    "name": "AjustarDoc",
+    "fields": [
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idUser",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "idCargo",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idAccion",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "idDoc",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "documentoSGC",
+            "otherEntityRelationshipName": "ajustarDoc",
+            "relationshipName": "documentoSGC",
+            "otherEntityField": "codigo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "ajustarDoc",
+            "relationshipName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "cargo",
+            "otherEntityRelationshipName": "ajustarDoc",
+            "relationshipName": "cargo",
+            "otherEntityField": "cargo"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "accionDoc",
+            "otherEntityRelationshipName": "ajustarDoc",
+            "relationshipName": "accionDoc",
+            "otherEntityField": "accion"
+        }
+    ],
+    "changelogDate": "20190617075228",
+    "entityTableName": "ajustar_doc",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

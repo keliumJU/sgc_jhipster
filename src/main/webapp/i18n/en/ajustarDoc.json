@@ -1,0 +1,30 @@
+{
+  "sgcApp": {
+    "ajustarDoc": {
+      "home": {
+        "title": "Ajustar Docs",
+        "createLabel": "Create a new Ajustar Doc",
+        "createOrEditLabel": "Create or edit a Ajustar Doc",
+        "notFound": "No Ajustar Doc found"
+      },
+      "created": "A new Ajustar Doc is created with identifier {{ param }}",
+      "updated": "A Ajustar Doc is updated with identifier {{ param }}",
+      "deleted": "A Ajustar Doc is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ajustar Doc {{ id }}?"
+      },
+      "detail": {
+        "title": "Ajustar Doc"
+      },
+      "code": "Code",
+      "idUser": "Id User",
+      "idCargo": "Id Cargo",
+      "idAccion": "Id Accion",
+      "idDoc": "Id Doc",
+      "documentoSGC": "Documento SGC",
+      "user": "User",
+      "cargo": "Cargo",
+      "accionDoc": "Accion Doc"
+    }
+  }
+}
